@@ -37,15 +37,18 @@ def scrape_multiple_seasons_data(seasons):
     # Scrape data for each season
     for season_year in seasons:
         csv_file_path = f"premier_league_data_{season_year}.csv"
-
+        
+        time.sleep(2) 
         # Check if data already exists
         if os.path.exists(csv_file_path):
             st.write(f"Data for season {season_year} already exists.")
             data = pd.read_csv(csv_file_path)
             all_seasons_data.append(data)
             continue
-
+      
         st.write(f"Scraping data for season {season_year}...")
+        time.sleep(2)
+        st.write("Hang in there....")
 
         standings_url = f"https://fbref.com/en/comps/9/{season_year}-{season_year + 1}/{season_year}-{season_year + 1}-Premier-League-Stats"
         data = requests.get(standings_url)
@@ -79,7 +82,6 @@ def scrape_multiple_seasons_data(seasons):
             season_all_data = pd.concat(season_data)
             # Save data to CSV file for the season
             season_all_data.to_csv(csv_file_path, index=False)
-            st.write(f"Data for season {season_year} saved to {csv_file_path}.")
             all_seasons_data.append(season_all_data)
         else:
             st.write(f"No data scraped for season {season_year}.")
@@ -89,7 +91,6 @@ def scrape_multiple_seasons_data(seasons):
         combined_data = pd.concat(all_seasons_data)
         combined_file_path = "premier_league_data_combined.csv"
         combined_data.to_csv(combined_file_path, index=False)
-        st.write(f"Combined data from all seasons saved to {combined_file_path}.")
         return combined_file_path
     else:
         st.write("No data scraped for any season.")

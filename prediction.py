@@ -2,14 +2,18 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import precision_score
 import streamlit as st
+import time
 
 # Define the prediction function
 def make_prediction(csv_file_path, season_year=None):
     # Load the data from the CSV file
     matches = pd.read_csv(csv_file_path)
     
-    # Display the loaded data
-    st.write(matches)
+    time.sleep(3)
+    st.write("Getting your prediction...")
+    
+    # # Display the loaded data
+    # st.write(matches)
     
     # Convert 'Date' column to datetime
     matches["Date"] = pd.to_datetime(matches["Date"])
@@ -59,9 +63,6 @@ def make_prediction(csv_file_path, season_year=None):
     train_data = matches[matches["Date"] < season_start]
     test_data = matches[matches["Date"] >= season_start]
     
-    st.write("Train data shape:", train_data.shape)
-    st.write("Test data shape:", test_data.shape)
-
     # Initialize the Random Forest Classifier
     rf = RandomForestClassifier(n_estimators=50, min_samples_split=10, random_state=1)
     
@@ -74,8 +75,8 @@ def make_prediction(csv_file_path, season_year=None):
     # Calculate the precision score
     precision = precision_score(test_data["target"], preds)
     
-    # Display the precision score
-    st.write("Model Precision Score:", precision)
+    # # Display the precision score
+    # st.write("Model Precision Score:", precision)
     
     # Combine the actual and predicted results
     combined_results = pd.DataFrame({
