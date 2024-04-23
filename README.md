@@ -19,14 +19,16 @@ The project is a Streamlit application that provides the following features:
 - Predicts the winner of a specified Premier League season using historical data and a Random Forest model.
 - Scrapes data for multiple seasons and combines them for model training and prediction.
 - Displays live standings of the current Premier League season.
-- Shows the top 3 goal scorers based on the live standings data.
-- Uses in-built Streamlit graphs and plots for visualization.
+
 
 ## Features
 
 - **Premier League Winner Prediction**: Allows users to predict the winner of a specified season based on historical data and a Random Forest model.
-- **Live Standings**: Displays the live standings of the current Premier League season, including the top 3 goal scorers.
-- **Graphs and Plots**: Utilizes Streamlit's in-built graphing capabilities for data visualization.
+
+
+![image](https://github.com/eby0303/PL_prediction/assets/86768805/f70e7eec-dfc0-4735-8e13-6d3f5b4331fc)
+
+![image](https://github.com/eby0303/PL_prediction/assets/86768805/e3131620-6093-492b-9aef-c023af0ea292)
 
 ## Data Collection
 
