@@ -21,11 +21,11 @@ def app():
     st.title("Season Year and Predictions")
 
     # Get the season year from the user
-    season_year = st.number_input("Enter the season year (e.g., 2023 for the 2023-2024 season):", min_value=2020, max_value=2025, step=1, value=2023)
+    season_year = st.number_input("Enter the season year (e.g., 2023 for the 2023-2024 season):", min_value=2020, max_value=2028, step=1, value=2024)
 
-    # Create a button for making predictions
+
     if st.button("Make Prediction"):
-        # Calculate the two previous seasons based on the user's input season year
+        # Calculate the two previous seasons based on input season year
         seasons_to_scrape = [season_year - 1, season_year - 2]
 
         # Call the scrape_multiple_seasons_data function to scrape data for the specified seasons
@@ -38,6 +38,5 @@ def app():
         st.subheader(f"The predicted winner of the {season_year}-{season_year + 1} season is: {winner}")
 
 
-# Run the application
 if __name__ == "__main__":
     app()
