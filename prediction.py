@@ -75,8 +75,8 @@ def make_prediction(csv_file_path, season_year=None):
     # Calculate the precision score
     precision = precision_score(test_data["target"], preds)
     
-    # # Display the precision score
-    # st.write("Model Precision Score:", precision)
+    # Display the precision score
+    st.write("Model Precision Score:", precision)
     
     # Combine the actual and predicted results
     combined_results = pd.DataFrame({
